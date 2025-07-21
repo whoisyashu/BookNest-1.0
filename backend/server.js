@@ -4,8 +4,9 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Enable CORS for frontend
-app.use(cors({ origin: 'http://localhost:3000' }));
+// Enable CORS for frontend (allow all origins for deployment, or use env var)
+const allowedOrigin = process.env.FRONTEND_URL || '*';
+app.use(cors({ origin: allowedOrigin }));
 
 // Connect to MongoDB
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/booknest';
@@ -73,4 +74,7 @@ app.get('/', (req, res) => {
   });
   
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port http://localhost:${PORT}`));
+app.listen(PORT, () => {
+  const url = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
+  console.log(`Server running on port ${url}`);
+});
