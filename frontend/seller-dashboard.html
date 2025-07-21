@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard | BookNest</title>
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="dashboard-container">
+    <a href="index.html" class="go-home-btn">← Go to Home</a>
+    <h1 class="dashboard-heading">My Account</h1>
+    <nav class="dashboard-nav">
+      <ul class="dashboard-links">
+        <li class="dashboard-link active" data-section="seller-profile">Profile</li>
+        <li class="dashboard-link" data-section="seller-orders">Orders</li>
+        <li class="dashboard-link" data-section="seller-listings">Listings</li>
+        <li class="dashboard-link" data-section="seller-returns">Returns</li>
+        <li class="dashboard-link" data-section="seller-invoice">Invoice</li>
+        <li class="dashboard-link" data-section="seller-helpdesk">Help Desk</li>
+      </ul>
+    </nav>
+    <section id="seller-profile" class="dashboard-section">
+      <div class="profile-header">
+        <div class="profile-subheading">Profile</div>
+      </div>
+      <div class="profile-image-upload-row">
+        <div class="profile-avatar-block">
+          <div class="profile-avatar" id="profileAvatar">
+            <img src="assets/images/avatar.png" alt="Avatar" class="avatar-img" />
+          </div>
+          <input type="file" id="profile-image" accept=".jpg,.jpeg,.gif,.png" class="file-input" style="display:none;">
+          <label for="profile-image" class="file-label">Choose file</label>
+          <div class="profile-image-note">* Must be a .jpg, .gif or .png file smaller than 10 MB and at least 400px by 400px.</div>
+        </div>
+      </div>
+      <div class="profile-fields-row">
+        <div class="profile-field-group">
+          <label for="sellerFirstName">First Name <span class="required">*</span></label>
+          <input type="text" id="sellerFirstName" class="profile-input" placeholder="First Name">
+        </div>
+        <div class="profile-field-group">
+          <label for="sellerLastName">Last Name <span class="required">*</span></label>
+          <input type="text" id="sellerLastName" class="profile-input" placeholder="Last Name">
+        </div>
+        <div class="profile-field-group">
+          <label for="sellerId">Seller ID <span class="required">*</span></label>
+          <input type="text" id="sellerId" class="profile-input" placeholder="#ID">
+        </div>
+      </div>
+      <hr class="profile-divider" />
+      <div class="profile-contact-header">
+        <div class="profile-subheading">Contact Details</div>
+      </div>
+      <div class="profile-contact-info">We will use these details to keep you informed about your account and sales.</div>
+      <div class="profile-contact-fields-row">
+        <div class="profile-field-group">
+          <label for="sellerEmail">Email <span class="required">*</span></label>
+          <input type="email" id="sellerEmail" class="profile-input" placeholder="Email">
+        </div>
+        <div class="profile-field-group">
+          <label for="sellerPhone">Phone Number <span class="required">*</span></label>
+          <input type="tel" id="sellerPhone" class="profile-input" placeholder="Phone Number">
+        </div>
+        <div class="profile-field-group">
+          <label for="sellerLocation">Location <span class="required">*</span></label>
+          <input type="text" id="sellerLocation" class="profile-input" placeholder="Location">
+        </div>
+      </div>
+      <hr class="profile-divider" />
+      <div class="profile-header">
+        <div class="profile-subheading">Login & Security</div>
+      </div>
+      <div class="security-fields-grid">
+        <div class="security-field-group">
+          <label>Username <span class="required">*</span></label>
+          <div class="security-value-row">
+            <input type="text" class="profile-input" value="seller.username" readonly />
+            <button class="edit-btn">Edit</button>
+          </div>
+        </div>
+        <div class="security-field-group">
+          <label>Full Name <span class="required">*</span></label>
+          <div class="security-value-row">
+            <input type="text" class="profile-input" value="Seller Name" readonly />
+            <button class="edit-btn">Edit</button>
+          </div>
+        </div>
+        <div class="security-field-group">
+          <label>Email <span class="required">*</span></label>
+          <div class="security-value-row">
+            <input type="email" class="profile-input" value="seller@example.com" readonly />
+            <button class="edit-btn">Edit</button>
+          </div>
+        </div>
+        <div class="security-field-group">
+          <label>Password <span class="required">*</span></label>
+          <div class="security-value-row">
+            <input type="password" class="profile-input" value="*************" readonly />
+            <button class="edit-btn">Edit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="seller-orders" class="dashboard-section" style="display:none">
+      <div class="orders-header-row">
+        <h2 class="orders-heading">Orders</h2>
+        <button class="add-order-btn">+ Add Order</button>
+      </div>
+      <div class="returned-orders-subheading">Returned orders by customers.</div>
+      <div class="orders-filters-row">
+        <select class="orders-filter-select">
+          <option>Type</option>
+          <option>All</option>
+          <option>Returned</option>
+          <option>Dispatched</option>
+        </select>
+        <select class="orders-filter-select">
+          <option>Month</option>
+          <option>Jan 2024</option>
+          <option>Dec 2023</option>
+        </select>
+        <select class="orders-filter-select">
+          <option>Urgency</option>
+          <option>Normal</option>
+          <option>Urgent</option>
+        </select>
+      </div>
+      <div class="orders-list">
+        <!-- Seller Order Card 1 -->
+        <div class="order-card">
+          <div class="order-card-left">
+            <div class="order-info-row">
+              <span>From: <b>BookNest</b></span>
+              <span>Order ID: <b>20/B</b></span>
+              <span>Purchased: <b>24 Dec, 2023</b></span>
+              <span>Est Delivery: <b>2 Jan, 2024</b></span>
+            </div>
+            <hr class="order-dotted-divider" />
+            <div class="order-books">
+              <div class="order-book">
+                <img src="assets/images/book1.jpg" alt="Book 1" class="order-book-img" />
+                <div class="order-book-details">
+                  <div class="order-book-title-row">
+                    <span class="order-book-title">Book 1</span>
+                    <span class="order-book-price">₹600</span>
+                  </div>
+                  <div class="order-book-qty-row">
+                    <span>Quantity</span>
+                    <span>1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-card-right">
+            <button class="order-btn dispatch">Dispatch</button>
+          </div>
+        </div>
+        <!-- Seller Order Card 2 -->
+        <div class="order-card">
+          <div class="order-card-left">
+            <div class="order-info-row">
+              <span>From: <b>BookNest</b></span>
+              <span>Order ID: <b>21/C</b></span>
+              <span>Purchased: <b>25 Dec, 2023</b></span>
+              <span>Est Delivery: <b>3 Jan, 2024</b></span>
+            </div>
+            <hr class="order-dotted-divider" />
+            <div class="order-books">
+              <div class="order-book">
+                <img src="assets/images/book2.png" alt="Book 2" class="order-book-img" />
+                <div class="order-book-details">
+                  <div class="order-book-title-row">
+                    <span class="order-book-title">Book 2</span>
+                    <span class="order-book-price">₹310</span>
+                  </div>
+                  <div class="order-book-qty-row">
+                    <span>Quantity</span>
+                    <span>1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-card-right">
+            <button class="order-btn dispatch">Dispatch</button>
+          </div>
+        </div>
+        <!-- Seller Order Card 3: Multiple Books -->
+        <div class="order-card">
+          <div class="order-card-left">
+            <div class="order-info-row">
+              <span>From: <b>BookNest</b></span>
+              <span>Order ID: <b>22/D</b></span>
+              <span>Purchased: <b>26 Dec, 2023</b></span>
+              <span>Est Delivery: <b>4 Jan, 2024</b></span>
+            </div>
+            <hr class="order-dotted-divider" />
+            <div class="order-books">
+              <div class="order-book">
+                <img src="assets/images/book1.jpg" alt="Book 1" class="order-book-img" />
+                <div class="order-book-details">
+                  <div class="order-book-title-row">
+                    <span class="order-book-title">Book 1</span>
+                    <span class="order-book-price">₹600</span>
+                  </div>
+                  <div class="order-book-qty-row">
+                    <span>Quantity</span>
+                    <span>1</span>
+                  </div>
+                </div>
+              </div>
+              <div class="order-book">
+                <img src="assets/images/book2.png" alt="Book 2" class="order-book-img" />
+                <div class="order-book-details">
+                  <div class="order-book-title-row">
+                    <span class="order-book-title">Book 2</span>
+                    <span class="order-book-price">₹310</span>
+                  </div>
+                  <div class="order-book-qty-row">
+                    <span>Quantity</span>
+                    <span>2</span>
+                  </div>
+                </div>
+              </div>
+              <div class="order-book">
+                <img src="assets/images/book3.jpg" alt="Book 3" class="order-book-img" />
+                <div class="order-book-details">
+                  <div class="order-book-title-row">
+                    <span class="order-book-title">Book 3</span>
+                    <span class="order-book-price">₹450</span>
+                  </div>
+                  <div class="order-book-qty-row">
+                    <span>Quantity</span>
+                    <span>1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-card-right">
+            <button class="order-btn dispatch">Dispatch</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="seller-listings" class="dashboard-section" style="display:none">
+      <div class="listings-header-row">
+        <h2 class="listings-heading">Listings</h2>
+        <button class="add-listing-btn" id="showAddBookSectionBtn">+ Add Item</button>
+      </div>
+      <!-- Add Book Section (hidden by default, expands on button click) -->
+      <section id="addBookSection" class="add-book-section" style="display:none;">
+        <h3 class="add-book-form-title">Add New Book</h3>
+        <form id="addBookForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="isbnInput">ISBN Number</label>
+              <input type="text" id="isbnInput" name="isbn" maxlength="13" minlength="10" required autocomplete="off" />
+              <div id="fetchLoading" style="display:none;">Fetching book details...</div>
+              <div id="fetchError" class="form-error" style="display:none;"></div>
+            </div>
+            <div class="form-group">
+              <label for="titleInput">Title</label>
+              <input type="text" id="titleInput" name="title" required />
+            </div>
+            <div class="form-group">
+              <label for="authorInput">Author</label>
+              <input type="text" id="authorInput" name="author" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="publisherInput">Publisher</label>
+              <input type="text" id="publisherInput" name="publisher" />
+            </div>
+            <div class="form-group">
+              <label for="publicationYearInput">Publication Year</label>
+              <input type="number" id="publicationYearInput" name="publicationYear" />
+            </div>
+            <div class="form-group">
+              <label for="pagesInput">Pages</label>
+              <input type="number" id="pagesInput" name="pages" min="1" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="genreInput">Genre</label>
+              <input type="text" id="genreInput" name="genre" />
+            </div>
+            <div class="form-group">
+              <label for="formatInput">Format</label>
+              <select id="formatInput" name="format">
+                <option value="hardcover">Hardcover</option>
+                <option value="paperback">Paperback</option>
+                <option value="ebook">Ebook</option>
+                <option value="audiobook">Audiobook</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="priceInput">Price (₹)</label>
+              <input type="number" id="priceInput" name="price" min="0" required />
+            </div>
+            <div class="form-group">
+              <label for="quantityInput">Quantity</label>
+              <input type="number" id="quantityInput" name="quantity" min="1" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="descriptionInput">Description</label>
+            <textarea id="descriptionInput" name="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Payment Options</label>
+            <label><input type="checkbox" name="paymentOptions" value="Cash" /> Cash</label>
+            <label><input type="checkbox" name="paymentOptions" value="Online" /> Online</label>
+            <label><input type="checkbox" name="paymentOptions" value="Exchange" /> Exchange</label>
+          </div>
+          <div class="form-group">
+            <label for="imageInput">Book Image</label>
+            <input type="file" id="imageInput" name="image" accept="image/*" required />
+            <div id="imagePreview"></div>
+            <div id="imageScoreLoading" style="display:none;">Evaluating image...</div>
+            <div id="imageScoreError" class="form-error" style="display:none;"></div>
+            <div id="imageScoreResult" style="display:none;"></div>
+          </div>
+          <div class="form-group">
+            <label for="conditionInput">Condition</label>
+            <input type="text" id="conditionInput" name="condition" readonly />
+          </div>
+          <button type="submit" id="submitBookBtn">Add Book</button>
+          <div id="submitLoading" style="display:none;">Submitting...</div>
+          <div id="submitError" class="form-error" style="display:none;"></div>
+        </form>
+      </section>
+      <div class="listings-tags-row">
+        <button class="listings-tag-btn active">All</button>
+        <button class="listings-tag-btn">Approved</button>
+        <button class="listings-tag-btn">Rejected</button>
+        <button class="listings-tag-btn">Pending</button>
+      </div>
+      <div class="listings-table-wrapper">
+        <table class="listings-table">
+          <thead>
+            <tr>
+              <th>NO.</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><img src="assets/images/book1.jpg" alt="Book 1" class="listing-book-img" /></td>
+              <td>Book 1</td>
+              <td>Motivation</td>
+              <td>₹600</td>
+              <td><span class="listing-status approved">Approved</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img src="assets/images/book2.png" alt="Book 2" class="listing-book-img" /></td>
+              <td>Book 2</td>
+              <td>Romantic</td>
+              <td>₹210</td>
+              <td><span class="listing-status approved">Approved</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img src="assets/images/book3.jpg" alt="Book 3" class="listing-book-img" /></td>
+              <td>Book 3</td>
+              <td>Sc-fi</td>
+              <td>₹320</td>
+              <td><span class="listing-status unapproved">Unapproved</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><img src="assets/images/book4.jpg" alt="Book 4" class="listing-book-img" /></td>
+              <td>Book 4</td>
+              <td>Children</td>
+              <td>₹220</td>
+              <td><span class="listing-status onhold">On Hold</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="listings-pagination">
+        <button class="pagination-btn">01</button>
+        <button class="pagination-btn">02</button>
+        <button class="pagination-btn">03</button>
+        <button class="pagination-btn">04</button>
+        <button class="pagination-btn">05</button>
+      </div>
+      <div class="listings-entries-info">Showing 1 to 8 of 16 entries</div>
+    </section>
+    <section id="seller-returns" class="dashboard-section" style="display:none">
+      <div class="returns-header-row">
+        <h2 class="returns-heading">Returns</h2>
+        <button class="add-returns-btn">+ Add Item</button>
+      </div>
+      <div class="returned-orders-subheading">Returned orders by customers.</div>
+      <div class="returns-tags-row">
+        <button class="returns-tag-btn active">All</button>
+        <button class="returns-tag-btn">Dispatched</button>
+        <button class="returns-tag-btn">Pending</button>
+        <button class="returns-tag-btn">On Hold</button>
+        <button class="returns-tag-btn">Canceled</button>
+      </div>
+      <div class="returns-table-wrapper">
+        <table class="returns-table">
+          <thead>
+            <tr>
+              <th>NO.</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><img src="assets/images/book4.jpg" alt="Book 1" class="listing-book-img" /></td>
+              <td>Book 1</td>
+              <td>Children</td>
+              <td>₹220</td>
+              <td><span class="listing-status onhold">On Hold</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img src="assets/images/book2.png" alt="Book 2" class="listing-book-img" /></td>
+              <td>Book 2</td>
+              <td>Romantic</td>
+              <td>₹150</td>
+              <td><span class="listing-status dispatched">Dispatched</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img src="assets/images/book3.jpg" alt="Book 3" class="listing-book-img" /></td>
+              <td>Book 3</td>
+              <td>Sci-fi</td>
+              <td>₹500</td>
+              <td><span class="listing-status pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><img src="assets/images/book3.jpg" alt="Book 3" class="listing-book-img" /></td>
+              <td>Book 3</td>
+              <td>Sci-fi</td>
+              <td>₹500</td>
+              <td><span class="listing-status pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><img src="assets/images/book5.jpg" alt="Book 4" class="listing-book-img" /></td>
+              <td>Book 4</td>
+              <td>Mystery</td>
+              <td>₹290</td>
+              <td><span class="listing-status canceled">Canceled</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="listings-pagination">
+        <button class="pagination-btn">01</button>
+        <button class="pagination-btn">02</button>
+        <button class="pagination-btn">03</button>
+        <button class="pagination-btn">04</button>
+        <button class="pagination-btn">05</button>
+      </div>
+      <div class="listings-entries-info">Showing 1 to 8 of 16 entries</div>
+    </section>
+    <section id="seller-invoice" class="dashboard-section" style="display:none">
+      <div class="invoices-header-row">
+        <h2 class="invoices-heading">Invoices</h2>
+        <button class="download-all-btn">Download All</button>
+      </div>
+      <div class="returned-orders-subheading">Returned orders by customers.</div>
+      <div class="invoices-tags-row">
+        <button class="invoices-tag-btn active">All</button>
+        <button class="invoices-tag-btn">Pending</button>
+        <button class="invoices-tag-btn">Paid</button>
+        <button class="invoices-tag-btn">Overdue</button>
+        <button class="invoices-tag-btn">Refunded</button>
+        <button class="invoices-tag-btn">Canceled</button>
+      </div>
+      <div class="invoices-table-wrapper">
+        <table class="invoices-table">
+          <thead>
+            <tr>
+              <th>NO.</th>
+              <th>Client</th>
+              <th>PRICE</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Naveen</td>
+              <td>₹887.00</td>
+              <td>15 Mar, 2025</td>
+              <td><span class="invoice-status pending">Pending</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Pankit</td>
+              <td>₹887.00</td>
+              <td>15 Apr, 2025</td>
+              <td><span class="invoice-status pending">Pending</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Yash</td>
+              <td>₹887.00</td>
+              <td>15 Feb, 2025</td>
+              <td><span class="invoice-status paid">Paid</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Yash</td>
+              <td>₹887.00</td>
+              <td>15 Feb, 2025</td>
+              <td><span class="invoice-status paid">Paid</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Yash</td>
+              <td>₹887.00</td>
+              <td>15 Feb, 2025</td>
+              <td><span class="invoice-status paid">Paid</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Yash</td>
+              <td>₹887.00</td>
+              <td>15 Feb, 2025</td>
+              <td><span class="invoice-status paid">Paid</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Yash</td>
+              <td>₹887.00</td>
+              <td>15 Feb, 2025</td>
+              <td><span class="invoice-status paid">Paid</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Yash</td>
+              <td>₹887.00</td>
+              <td>15 Feb, 2025</td>
+              <td><span class="invoice-status paid">Paid</span></td>
+              <td><button class="invoice-download-btn">Download</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="listings-pagination">
+        <button class="pagination-btn">01</button>
+        <button class="pagination-btn">02</button>
+        <button class="pagination-btn">03</button>
+        <button class="pagination-btn">04</button>
+        <button class="pagination-btn">05</button>
+      </div>
+      <div class="listings-entries-info">Showing 1 to 8 of 16 entries</div>
+    </section>
+    <section id="seller-helpdesk" class="dashboard-section" style="display:none">
+      <div class="helpdesk-header-row">
+        <h2 class="helpdesk-heading">Help Desk</h2>
+        <button class="helpdesk-send-btn">Send Message</button>
+      </div>
+      <div class="returned-orders-subheading">Returned orders by customers.</div>
+      <div class="helpdesk-search-row">
+        <input type="text" class="helpdesk-search-input" placeholder="Search help topics..." />
+      </div>
+      <div class="helpdesk-topics-grid">
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">📖</span>
+          <div class="helpdesk-topic-title">Get Started</div>
+          <div class="helpdesk-topic-desc">How it works, Getting started, Fees & Protection</div>
+        </div>
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">👤</span>
+          <div class="helpdesk-topic-title">Build Your Profile</div>
+          <div class="helpdesk-topic-desc">Settings, Profile Management, Listings and more</div>
+        </div>
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">📝</span>
+          <div class="helpdesk-topic-title">Create Listings</div>
+          <div class="helpdesk-topic-desc">Add Product Images, Set Products Live and Store Running</div>
+        </div>
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">💰</span>
+          <div class="helpdesk-topic-title">Get Paid</div>
+          <div class="helpdesk-topic-desc">How it works, Getting started, Fees & Protection</div>
+        </div>
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">🔒</span>
+          <div class="helpdesk-topic-title">Security</div>
+          <div class="helpdesk-topic-desc">Settings, Profile Management, Listings and more</div>
+        </div>
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">📊</span>
+          <div class="helpdesk-topic-title">My Stats</div>
+          <div class="helpdesk-topic-desc">Add Product Images, Set Products Live and Store Running</div>
+        </div>
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">⚙️</span>
+          <div class="helpdesk-topic-title">Settings</div>
+          <div class="helpdesk-topic-desc">Settings, Profile Management, Listings and more</div>
+        </div>
+        <div class="helpdesk-topic-card">
+          <span class="helpdesk-topic-icon">❌</span>
+          <div class="helpdesk-topic-title">Close Account</div>
+          <div class="helpdesk-topic-desc">How it works, Getting started, Fees & Protection</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    // Seller dashboard authentication
+    if (!localStorage.getItem('token') || localStorage.getItem('userType') !== 'seller') {
+      window.location.href = 'login.html';
+    }
+    // Tab navigation logic (same as customer dashboard)
+    document.querySelectorAll('.dashboard-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.dashboard-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelectorAll('.dashboard-section').forEach(section => section.style.display = 'none');
+        document.getElementById(this.getAttribute('data-section')).style.display = '';
+      });
+    });
+  </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Show/hide Add Book section
+  const showAddBookSectionBtn = document.getElementById('showAddBookSectionBtn');
+  const addBookSection = document.getElementById('addBookSection');
+  showAddBookSectionBtn.addEventListener('click', () => {
+    addBookSection.style.display = addBookSection.style.display === 'none' ? 'block' : 'none';
+  });
+  // ISBN autofetch logic with improved debug and edge case handling
+  const isbnInput = document.getElementById('isbnInput');
+  const fetchLoading = document.getElementById('fetchLoading');
+  const fetchError = document.getElementById('fetchError');
+  let lastFetchedIsbn = '';
+  let isbnDebounceTimeout;
+  function stripHtmlTags(html) {
+    if (!html) return '';
+    return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  }
+  isbnInput.addEventListener('input', () => {
+    clearTimeout(isbnDebounceTimeout);
+    isbnDebounceTimeout = setTimeout(async () => {
+      let isbn = isbnInput.value.replace(/[^0-9Xx]/g, '').trim(); // Remove all non-digit except X/x for ISBN-10
+      if (isbn.length === 0) {
+        lastFetchedIsbn = '';
+        return;
+      }
+      if ((isbn.length === 10 || isbn.length === 13) && isbn !== lastFetchedIsbn) {
+        fetchLoading.style.display = 'block';
+        fetchError.style.display = 'none';
+        lastFetchedIsbn = isbn;
+        try {
+          // First fetch by ISBN
+          const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
+          if (!res.ok) {
+            if (res.status === 403) {
+              throw new Error('Google Books API is currently blocking requests. Please try again later or contact support.');
+            } else {
+              throw new Error('Failed to fetch book details. HTTP status: ' + res.status);
+            }
+          }
+          const data = await res.json();
+          if (!data.items || !data.items.length) throw new Error('No book found for this ISBN.');
+          const bookId = data.items[0].id;
+          // Second fetch by book ID for more details
+          const detailRes = await fetch(`https://www.googleapis.com/books/v1/volumes/${bookId}`);
+          if (!detailRes.ok) throw new Error('Failed to fetch detailed book info. HTTP status: ' + detailRes.status);
+          const detailData = await detailRes.json();
+          const info = detailData.volumeInfo;
+          document.getElementById('titleInput').value = info.title || '';
+          document.getElementById('authorInput').value = (info.authors ? info.authors.join(', ') : '');
+          document.getElementById('publisherInput').value = info.publisher || '';
+          document.getElementById('publicationYearInput').value = (info.publishedDate ? info.publishedDate.substring(0,4) : '');
+          document.getElementById('descriptionInput').value = stripHtmlTags(info.description) || '';
+          document.getElementById('pagesInput').value = info.pageCount || '';
+          document.getElementById('genreInput').value = (info.categories ? info.categories.join(', ') : '');
+          document.getElementById('formatInput').value = 'hardcover';
+          // Autofill image preview if available and no image uploaded yet
+          if (info.imageLinks && info.imageLinks.thumbnail && !document.getElementById('imageInput').files.length) {
+            document.getElementById('imagePreview').innerHTML = `<img src='${info.imageLinks.thumbnail}' style='max-width:120px;max-height:120px;border-radius:8px;' />`;
+          }
+        } catch (err) {
+          fetchError.textContent = err.message;
+          fetchError.style.display = 'block';
+        } finally {
+          fetchLoading.style.display = 'none';
+        }
+      }
+    }, 350);
+  });
+  // Image upload and Gemini API logic
+  const imageInput = document.getElementById('imageInput');
+  const imageScoreLoading = document.getElementById('imageScoreLoading');
+  const imageScoreError = document.getElementById('imageScoreError');
+  const imageScoreResult = document.getElementById('imageScoreResult');
+  const conditionInput = document.getElementById('conditionInput');
+  imageInput.addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    imageScoreLoading.style.display = 'block';
+    imageScoreError.style.display = 'none';
+    imageScoreResult.style.display = 'none';
+    // Preview
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      document.getElementById('imagePreview').innerHTML = `<img src='${ev.target.result}' style='max-width:120px;max-height:120px;border-radius:8px;' />`;
+    };
+    reader.readAsDataURL(file);
+    // Send to backend for Gemini evaluation
+    const formData = new FormData();
+    formData.append('image', file);
+    try {
+      const res = await fetch('http://localhost:5000/api/books/condition-score', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Error evaluating image');
+      // Robust extraction for score, condition, and reason from markdown or plain text
+      let scoreText = 'N/A', normalizedQuality = 'N/A', reasonText = '';
+      let allowedConditions = ['New', 'Like New', 'Good', 'Fair', 'Poor'];
+      let aiText = (data.geminiText || '').trim();
+      // Regex for markdown bullets or plain text
+      const scoreMatch = aiText.match(/\*+\s*\*\*\s*Score:\s*\*\*\s*(\d+)/i) || aiText.match(/Score:\s*(\d+)/i);
+      const qualityMatch = aiText.match(/\*+\s*\*\*\s*Condition Tag:\s*\*\*\s*([A-Za-z ]+)/i) || aiText.match(/Condition Tag:\s*([A-Za-z ]+)/i);
+      const reasonMatch = aiText.match(/\*+\s*\*\*\s*Explanation:\s*\*\*\s*([^\n]+)/i) || aiText.match(/Explanation:\s*([^\n]+)/i);
+      if (scoreMatch) scoreText = scoreMatch[1];
+      if (reasonMatch) reasonText = reasonMatch[1].trim();
+      // Score-to-condition mapping with emoji
+      function mapScoreToCondition(score) {
+        score = parseInt(score, 10);
+        if (score >= 85) return '🟢 New';
+        if (score >= 65) return '🟡 Like New';
+        if (score >= 45) return '🟠 Good';
+        if (score >= 25) return '🔵 Fair';
+        if (score >= 0)  return '🔴 Poor';
+        return 'N/A';
+      }
+      if (scoreText !== 'N/A' && !isNaN(Number(scoreText))) {
+        normalizedQuality = mapScoreToCondition(scoreText);
+      } else if (qualityMatch) {
+        let raw = qualityMatch[1].trim();
+        let idx = allowedConditions.findIndex(
+          cond => cond.toLowerCase() === raw.toLowerCase()
+        );
+        if (idx !== -1) {
+          // Add emoji to the matched condition
+          const emojis = ['🟢', '🟡', '🟠', '🔵', '🔴'];
+          normalizedQuality = `${emojis[idx]} ${allowedConditions[idx]}`;
+        }
+      }
+      // Only fill the condition field, do not display score, condition, or reason in the UI
+      imageScoreResult.style.display = 'none';
+      conditionInput.value = normalizedQuality;
+    } catch (err) {
+      imageScoreError.textContent = err.message;
+      imageScoreError.style.display = 'block';
+      conditionInput.value = '';
+    } finally {
+      imageScoreLoading.style.display = 'none';
+    }
+  });
+  // Submit logic
+  const addBookForm = document.getElementById('addBookForm');
+  const submitLoading = document.getElementById('submitLoading');
+  const submitError = document.getElementById('submitError');
+  addBookForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitLoading.style.display = 'block';
+    submitError.style.display = 'none';
+    const form = e.target;
+    const formData = new FormData(form);
+    // Collect payment options
+    const paymentOptions = Array.from(form.querySelectorAll('input[name="paymentOptions"]:checked')).map(cb => cb.value);
+    const payload = {
+      isbn: formData.get('isbn'),
+      title: formData.get('title'),
+      author: formData.get('author'),
+      publisher: formData.get('publisher'),
+      publicationYear: formData.get('publicationYear'),
+      description: formData.get('description'),
+      pages: formData.get('pages'),
+      genre: formData.get('genre'),
+      format: formData.get('format'),
+      price: formData.get('price'),
+      quantity: formData.get('quantity'),
+      paymentOptions,
+      condition: formData.get('condition'),
+      // image: handled separately
+    };
+    // Add image
+    const imageFile = form.querySelector('input[name="image"]').files[0];
+    if (imageFile) {
+      const imgForm = new FormData();
+      imgForm.append('image', imageFile);
+      // Upload image to backend (optional: get URL)
+      // For now, just add image as base64 (for demo)
+      const reader = new FileReader();
+      reader.onload = async function(ev) {
+        payload.images = [ev.target.result];
+        await submitBook(payload);
+      };
+      reader.readAsDataURL(imageFile);
+    } else {
+      await submitBook(payload);
+    }
+  });
+  async function submitBook(payload) {
+    try {
+      const res = await fetch('/api/books', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Error adding book');
+      alert('Book added successfully!');
+      addBookForm.reset();
+    } catch (err) {
+      submitError.textContent = err.message;
+      submitError.style.display = 'block';
+    } finally {
+      submitLoading.style.display = 'none';
+    }
+  }
+});
+</script>
+</body>
+</html> 

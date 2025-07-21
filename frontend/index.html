@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest | HomePage</title>
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-papm6Q+..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <img src="assets/images/navlogo.png" alt="">
+                </div>
+            </div>
+            <div class="nav-center">
+              <div class="search-bar-wrapper">
+                <input type="text" class="search-bar" placeholder="Search a Book.....">
+                <img src="assets/images/search-btn.png" alt="Search" class="search-icon" />
+              </div>
+            </div>
+            <div class="nav-right">
+                <button class="btn-1" id="login" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn-1" id="signup" onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <section class="hero-section">
+      <div class="hero-content hero-left">
+        <div class="hero-text-block">
+          <h1 class="hero-title">
+            Enjoy your <span class="highlight">book</span><br/>
+            <span class="hero-sub">before your activity</span>
+          </h1>
+          <div class="hero-buttons">
+            <button class="hero-btn buy-now">
+              <i class="fas fa-shopping-cart"></i> Buy Now
+            </button>
+            <button class="hero-btn start-selling">
+              <i class="fas fa-store"></i> Start Selling
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image hero-right">
+        <img src="assets/images/hero-section.png" alt="Hero Section" />
+      </div>
+    </section>
+    <section class="popular-section">
+      <div class="popular-bg"></div>
+      <div class="popular-content">
+        <h2 class="popular-title">Popular Now</h2>
+        <div class="popular-underline"></div>
+        <div class="popular-cards">
+          <div class="popular-card">
+            <div class="popular-card-img">
+              <img src="https://novelniche.net/2011/11/23/americanpsycho/" alt="Book 1" />
+            </div>
+            <div class="popular-card-info">
+              <span class="popular-card-name">American Psycho</span>
+              <span class="popular-card-price">₹499</span>
+            </div>
+          </div>
+          <div class="popular-card">
+            <div class="popular-card-img">
+              <img src="assets/images/book2.png" alt="Book 2" />
+            </div>
+            <div class="popular-card-info">
+              <span class="popular-card-name">The Alchemist</span>
+              <span class="popular-card-price">₹399</span>
+            </div>
+          </div>
+          <div class="popular-card">
+            <div class="popular-card-img">
+              <img src="assets/images/book2.png" alt="Book 3" />
+            </div>
+            <div class="popular-card-info">
+              <span class="popular-card-name">To Kill a Mockingbird</span>
+              <span class="popular-card-price">₹299</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- HOW TO SECTION -->
+    <section class="howto-section">
+        <h2 class="section-title">How to use delivery service</h2>
+        <div class="section-underline"></div>
+        <div class="howto-steps">
+          <div class="howto-step">
+            <img class="howto-step-img" src="assets/images/choose-book.png" alt="Choose Book" />
+            <div class="howto-step-title">Choose your book</div>
+            <div class="howto-step-desc">There are 2 lakh+ books for you</div>
+          </div>
+          <div class="howto-step">
+            <img class="howto-step-img" src="assets/images/delivery.png" alt="Delivery" />
+            <div class="howto-step-title">We delivery it to you</div>
+            <div class="howto-step-desc">Choose delivery service</div>
+          </div>
+          <div class="howto-step">
+            <img class="howto-step-img" src="assets/images/customer.png" alt="Enjoy" />
+            <div class="howto-step-title">Enjoy your book</div>
+            <div class="howto-step-desc">Choose wisely</div>
+          </div>
+        </div>
+      </section>
+      <section class="about-section">
+        <div class="about-image-block">
+          <img class="about-img" src="assets/images/banner.jpg" alt="About BookNest" />
+        </div>
+        <div class="about-content-block">
+          <h2 class="section-title">About us</h2>
+          <div class="section-underline"></div>
+          <div class="about-headline">We provide quality book, and ready to deliver.</div>
+          <div class="about-description">We're BookNest a brand built for readers. Whether you're into thrillers, romance, or quiet nonfiction, there's a story waiting for you at BookNest.</div>
+          <button class="btn btn-primary">More menu</button>
+        </div>
+      </section>
+    <section class="special-books-section">
+      <div class="special-books-content">
+        <h2 class="special-books-title">Special books for you</h2>
+        <div class="special-books-underline"></div>
+        <div class="special-books-cards">
+          <div class="special-book-card">
+            <div class="special-book-img">
+              <img src="assets/images/book1.jpg" alt="Book 1" />
+            </div>
+            <div class="special-book-info">
+              <span class="special-book-name">Book !</span>
+              <span class="special-book-price">₹499</span>
+              <span class="special-book-desc">Book ki thodi briefing</span>
+              <div class="special-book-rating">
+                <span class="special-book-rating-value">4.8</span>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="special-book-card">
+            <div class="special-book-img">
+              <img src="assets/images/book2.png" alt="Book 2" />
+            </div>
+            <div class="special-book-info">
+              <span class="special-book-name">Cappuccino</span>
+              <span class="special-book-price">₹399</span>
+              <span class="special-book-desc">Hot Cappuccino</span>
+              <div class="special-book-rating">
+                <span class="special-book-rating-value">4.7</span>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="special-book-card">
+            <div class="special-book-img">
+              <img src="assets/images/book3.jpg" alt="Book 3" />
+            </div>
+            <div class="special-book-info">
+              <span class="special-book-name">Waffle Ice Cream</span>
+              <span class="special-book-price">₹299</span>
+              <span class="special-book-desc">Wafle with Ice cream</span>
+              <div class="special-book-rating">
+                <span class="special-book-rating-value">4.9</span>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="special-book-card">
+            <div class="special-book-img">
+              <img src="assets/images/book3.jpg" alt="Book 3" />
+            </div>
+            <div class="special-book-info">
+              <span class="special-book-name">Waffle Ice Cream</span>
+              <span class="special-book-price">₹299</span>
+              <span class="special-book-desc">Wafle with Ice cream</span>
+              <div class="special-book-rating">
+                <span class="special-book-rating-value">4.9</span>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="special-book-card">
+            <div class="special-book-img">
+              <img src="assets/images/book3.jpg" alt="Book 3" />
+            </div>
+            <div class="special-book-info">
+              <span class="special-book-name">Waffle Ice Cream</span>
+              <span class="special-book-price">₹299</span>
+              <span class="special-book-desc">Wafle with Ice cream</span>
+              <div class="special-book-rating">
+                <span class="special-book-rating-value">4.9</span>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="special-book-card">
+            <div class="special-book-img">
+              <img src="assets/images/book3.jpg" alt="Book 3" />
+            </div>
+            <div class="special-book-info">
+              <span class="special-book-name">Waffle Ice Cream</span>
+              <span class="special-book-price">₹299</span>
+              <span class="special-book-desc">Wafle with Ice cream</span>
+              <div class="special-book-rating">
+                <span class="special-book-rating-value">4.9</span>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="testimonials-section">
+      <div class="testimonials-bg"></div>
+      <div class="testimonials-content">
+        <div class="testimonials-left">
+          <h2 class="testimonials-title">What they say about us</h2>
+          <div class="testimonials-subtitle">We always provide the best service</div>
+        </div>
+        <div class="testimonials-right">
+          <div class="testimonials-cards">
+            <div class="testimonial-card">
+              <div class="testimonial-img">
+                <img src="assets/images/user1.jpg" alt="Naura" />
+              </div>
+              <div class="testimonial-info">
+                <span class="testimonial-name">Naura</span>
+                <span class="testimonial-quote">I really love the book and delivery service as soo good</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-img">
+                <img src="assets/images/user2.jpg" alt="John" />
+              </div>
+              <div class="testimonial-info">
+                <span class="testimonial-name">John</span>
+                <span class="testimonial-quote">I Loved the Dark Romance</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-img">
+                <img src="assets/images/user3.jpg" alt="Azura" />
+              </div>
+              <div class="testimonial-info">
+                <span class="testimonial-name">Azura</span>
+                <span class="testimonial-quote">Nice</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="newsletter-section">
+      <div class="newsletter-content">
+        <h2 class="newsletter-title">Subscribe to our Newsletter</h2>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+          <input type="email" class="newsletter-input" placeholder="Enter your email" required />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+    <script>
+        const loginBtn = document.getElementById('login');
+        const signupBtn = document.getElementById('signup');
+      
+        loginBtn.addEventListener('mouseenter', () => {
+          loginBtn.classList.add('hover-effect');
+          signupBtn.classList.add('hover-effect');
+        });
+      
+        loginBtn.addEventListener('mouseleave', () => {
+          loginBtn.classList.remove('hover-effect');
+          signupBtn.classList.remove('hover-effect');
+        });
+      
+        signupBtn.addEventListener('mouseenter', () => {
+          loginBtn.classList.add('hover-effect');
+          signupBtn.classList.add('hover-effect');
+        });
+      
+        signupBtn.addEventListener('mouseleave', () => {
+          loginBtn.classList.remove('hover-effect');
+          signupBtn.classList.remove('hover-effect');
+        });
+      
+        // Hero section button hover effect
+        const buyNowBtn = document.querySelector('.hero-btn.buy-now');
+        const startSellingBtn = document.querySelector('.hero-btn.start-selling');
+      
+        buyNowBtn.addEventListener('mouseenter', () => {
+          buyNowBtn.classList.add('hover-effect');
+          startSellingBtn.classList.add('hover-effect');
+        });
+      
+        buyNowBtn.addEventListener('mouseleave', () => {
+          buyNowBtn.classList.remove('hover-effect');
+          startSellingBtn.classList.remove('hover-effect');
+        });
+      
+        startSellingBtn.addEventListener('mouseenter', () => {
+          buyNowBtn.classList.add('hover-effect');
+          startSellingBtn.classList.add('hover-effect');
+        });
+      
+        startSellingBtn.addEventListener('mouseleave', () => {
+          buyNowBtn.classList.remove('hover-effect');
+          startSellingBtn.classList.remove('hover-effect');
+        });
+
+      
+      <!-- Infinite Marquee for Testimonials (smooth card move) -->
+      const marquee = document.querySelector('.testimonials-marquee-inner');
+      const marqueeContainer = document.querySelector('.testimonials-marquee');
+      let isPaused = false;
+      let marqueeWidth = 0;
+      let cardWidth = 0;
+      let gap = 32;
+      let scrollX = 0;
+
+      function updateWidths() {
+        const card = marquee.querySelector('.testimonial-card');
+        if (card) {
+          cardWidth = card.offsetWidth;
+          marqueeWidth = marquee.scrollWidth;
+        }
+      }
+
+      function moveMarquee() {
+        if (isPaused) return;
+        scrollX += 1;
+        marquee.style.transform = `translateX(-${scrollX}px)`;
+        // If the first card is fully out of view, move it to the end
+        if (scrollX >= cardWidth + gap) {
+          marquee.style.transition = 'none';
+          marquee.appendChild(marquee.children[0]);
+          scrollX -= cardWidth + gap;
+          // Use double requestAnimationFrame for smoothness
+          requestAnimationFrame(() => {
+            marquee.style.transform = `translateX(-${scrollX}px)`;
+            requestAnimationFrame(() => {
+              marquee.style.transition = 'transform 0.6s linear';
+            });
+          });
+        }
+        requestAnimationFrame(moveMarquee);
+      }
+
+      marqueeContainer.addEventListener('mouseenter', () => { isPaused = true; });
+      marqueeContainer.addEventListener('mouseleave', () => { isPaused = false; moveMarquee(); });
+      window.addEventListener('resize', updateWidths);
+      updateWidths();
+      moveMarquee();
+    </script>
+  </body>
+</html>

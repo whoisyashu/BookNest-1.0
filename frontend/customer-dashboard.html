@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest | Dashboard</title>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <div class="dashboard-container">
+      <a href="index.html" class="go-home-btn">← Go to Home</a>
+      <h1 class="dashboard-heading">My Account</h1>
+      <nav class="dashboard-nav">
+        <ul class="dashboard-links">
+          <li class="dashboard-link active" data-section="profile">Profile</li>
+          <li class="dashboard-link" data-section="security">Security</li>
+          <li class="dashboard-link" data-section="orders">Orders</li>
+          <li class="dashboard-link" data-section="addresses">Addresses</li>
+          <li class="dashboard-link" data-section="payment">Payment Methods</li>
+          <li class="dashboard-link" data-section="wishlist">Wishlist</li>
+        </ul>
+        <hr class="dashboard-divider" />
+      </nav>
+      <section id="profile" class="dashboard-section">
+        <div class="profile-header">
+          <div class="profile-subheading">Profile</div>
+        </div>
+        <div class="profile-image-upload-row">
+          <div class="profile-avatar-block">
+            <div class="profile-avatar" id="profileAvatar">
+              <img src="assets/images/avatar.png" alt="Avatar" class="avatar-img" />
+            </div>
+            <input type="file" id="profile-image" accept=".jpg,.jpeg,.gif,.png" class="file-input" style="display:none;">
+            <label for="profile-image" class="file-label">Choose file</label>
+            <div class="profile-image-note">* Must be a .jpg, .gif or .png file smaller than 10 MB and at least 400px by 400px.</div>
+          </div>
+        </div>
+        <div class="profile-fields-row">
+          <div class="profile-field-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" class="profile-input" placeholder="First Name">
+          </div>
+          <div class="profile-field-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" class="profile-input" placeholder="Last Name">
+          </div>
+          <div class="profile-field-group">
+            <label for="userId">User ID <span class="required">*</span></label>
+            <input type="text" id="userId" class="profile-input" placeholder="#ID">
+          </div>
+        </div>
+        <hr class="profile-divider" />
+        <div class="profile-contact-header">
+          <div class="profile-subheading">Contact Details</div>
+        </div>
+        <div class="profile-contact-info">We will use these details to keep you inform about your delivery.</div>
+        <div class="profile-contact-fields-row">
+          <div class="profile-field-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" class="profile-input" placeholder="Email">
+          </div>
+          <div class="profile-field-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" class="profile-input" placeholder="Phone Number">
+          </div>
+          <div class="profile-field-group">
+            <label for="location">Location <span class="required">*</span></label>
+            <input type="text" id="location" class="profile-input" placeholder="Location">
+          </div>
+        </div>
+      </section>
+      <section id="security" class="dashboard-section" style="display:none">
+        <div class="profile-header">
+          <div class="profile-subheading">Login</div>
+        </div>
+        <div class="security-fields-grid">
+          <div class="security-field-group">
+            <label>Username <span class="required">*</span></label>
+            <div class="security-value-row">
+              <input type="text" class="profile-input" value="bilal.mughal210" readonly />
+              <button class="edit-btn">Edit</button>
+            </div>
+          </div>
+          <div class="security-field-group">
+            <label>Full Name <span class="required">*</span></label>
+            <div class="security-value-row">
+              <input type="text" class="profile-input" value="Bilal Mughal" readonly />
+              <button class="edit-btn">Edit</button>
+            </div>
+          </div>
+          <div class="security-field-group">
+            <label>Email <span class="required">*</span></label>
+            <div class="security-value-row">
+              <input type="email" class="profile-input" value="bilal.mughal210@gmail.com" readonly />
+              <button class="edit-btn">Edit</button>
+            </div>
+          </div>
+          <div class="security-field-group">
+            <label>Password <span class="required">*</span></label>
+            <div class="security-value-row">
+              <input type="password" class="profile-input" value="*************" readonly />
+              <button class="edit-btn">Edit</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="orders" class="dashboard-section" style="display:none">
+        <div class="orders-tabs">
+          <button class="orders-tab active" data-tab="all">AllOrders</button>
+          <button class="orders-tab" data-tab="delivered">Delivered</button>
+          <button class="orders-tab" data-tab="notshipped">NotShippedYet</button>
+          <button class="orders-tab" data-tab="cancelled">Cancelled</button>
+          <button class="orders-tab" data-tab="refunded">Refunded</button>
+        </div>
+        <div class="orders-list" id="ordersList"></div>
+      </section>
+      <section id="addresses" class="dashboard-section" style="display:none">
+        <div class="address-grid" id="addressGrid">
+          <div class="address-card add-address-card">
+            <div class="add-address-icon">
+              <img src="assets/images/plus-icon.png" alt="Add" />
+            </div>
+            <div class="add-address-text">Add New Address</div>
+          </div>
+        </div>
+      </section>
+      <section id="payment" class="dashboard-section" style="display:none">
+        <h3 class="payment-subheading">Credit/Debit Cards</h3>
+        <div class="payment-card-grid" id="paymentCardGrid"></div>
+        <div class="upi-section">
+          <h3 class="upi-subheading">UPI</h3>
+          <div class="upi-card-grid" id="upiCardGrid"></div>
+        </div>
+      </section>
+      <section id="wishlist" class="dashboard-section" style="display:none">
+        <h3 class="wishlist-subheading">Favorite Items</h3>
+        <div class="wishlist-desc">You can add your credit and debit card details here for future purchases.</div>
+        <div class="wishlist-grid" id="wishlistGrid"></div>
+      </section>
+    </div>
+    <script>
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const input = this.parentElement.querySelector('.profile-input');
+    if (input.hasAttribute('readonly')) {
+      input.removeAttribute('readonly');
+      input.focus();
+      this.textContent = 'Save';
+    } else {
+      input.setAttribute('readonly', true);
+      this.textContent = 'Edit';
+      // Optionally, add code here to save the updated value
+    }
+  });
+}); 
+      // Removed duplicate declaration of links and sections here
+    </script>
+    <div class="address-popup-overlay" id="addressPopupOverlay" style="display:none;">
+      <div class="address-popup">
+        <button class="popup-close-btn" id="closeAddressPopup">&times;</button>
+        <h2 class="popup-title">Add New Address</h2>
+        <form class="address-form">
+          <div class="address-form-row">
+            <div class="address-form-group">
+              <label for="popupName">Name <span class="required">*</span></label>
+              <input type="text" id="popupName" class="address-form-input" placeholder="Full Name" required>
+            </div>
+            <div class="address-form-group">
+              <label for="popupPhone">Phone <span class="required">*</span></label>
+              <input type="tel" id="popupPhone" class="address-form-input" placeholder="Phone Number" required>
+            </div>
+          </div>
+          <div class="address-form-group">
+            <label for="popupAddress">Address <span class="required">*</span></label>
+            <textarea id="popupAddress" class="address-form-input" placeholder="Full Address" required></textarea>
+          </div>
+          <div class="address-form-row">
+            <div class="address-form-group">
+              <label for="popupCity">City <span class="required">*</span></label>
+              <input type="text" id="popupCity" class="address-form-input" placeholder="City" required>
+            </div>
+            <div class="address-form-group">
+              <label for="popupState">State <span class="required">*</span></label>
+              <input type="text" id="popupState" class="address-form-input" placeholder="State" required>
+            </div>
+          </div>
+          <div class="address-form-row">
+            <div class="address-form-group">
+              <label for="popupZip">Zip Code <span class="required">*</span></label>
+              <input type="text" id="popupZip" class="address-form-input" placeholder="Zip Code" required>
+            </div>
+            <div class="address-form-group">
+              <label for="popupCountry">Country <span class="required">*</span></label>
+              <input type="text" id="popupCountry" class="address-form-input" placeholder="Country" required>
+            </div>
+          </div>
+          <button type="submit" class="address-form-btn">Save Address</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      // Open popup when Add New Address card is clicked
+      document.querySelector('.add-address-card').addEventListener('click', function() {
+        document.getElementById('addressPopupOverlay').style.display = 'flex';
+      });
+      // Close popup
+      document.getElementById('closeAddressPopup').addEventListener('click', function() {
+        document.getElementById('addressPopupOverlay').style.display = 'none';
+      });
+      // Optional: Close popup on overlay click
+      document.getElementById('addressPopupOverlay').addEventListener('click', function(e) {
+        if (e.target === this) this.style.display = 'none';
+      });
+    </script>
+    <script src="assets/js/api.js"></script>
+    <script>
+      // Customer dashboard authentication
+      if (!localStorage.getItem('token') || localStorage.getItem('userType') !== 'customer') {
+        window.location.href = 'login.html';
+      }
+
+      // Helper: Render Orders
+      async function renderOrders() {
+        const ordersList = document.getElementById('ordersList');
+        ordersList.innerHTML = '<div>Loading orders...</div>';
+        try {
+          const orders = await api.getBuyerOrders();
+          if (!orders.length) {
+            ordersList.innerHTML = '<div class="empty-section-msg">No orders placed yet.</div>';
+            return;
+          }
+          ordersList.innerHTML = orders.map(order => `
+            <div class="order-card">
+              <div class="order-card-left">
+                <div class="order-info-row">
+                  <span>Order ID: <b>${order._id}</b></span>
+                  <span>Purchased: <b>${new Date(order.createdAt).toLocaleDateString()}</b></span>
+                  <span>Status: <b>${order.status || 'N/A'}</b></span>
+                </div>
+                <hr class="order-dotted-divider" />
+                <div class="order-books">
+                  ${(order.books || []).map(book => `
+                    <div class="order-book">
+                      <img src="${book.coverImage || 'assets/images/book1.jpg'}" alt="Book" class="order-book-img" />
+                      <div class="order-book-details">
+                        <div class="order-book-title-row">
+                          <span class="order-book-title">${book.title}</span>
+                          <span class="order-book-price">₹${book.price}</span>
+                        </div>
+                        <div class="order-book-qty-row">
+                          <span>Quantity</span>
+                          <span>${book.quantity}</span>
+                        </div>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="order-card-right">
+                <button class="order-btn buy-again">Buy Again</button>
+                <button class="order-btn help-order">Help with Order</button>
+              </div>
+            </div>
+          `).join('');
+        } catch (err) {
+          ordersList.innerHTML = '<div class="empty-section-msg">Error loading orders.</div>';
+        }
+      }
+
+      // Helper: Render Addresses
+      async function renderAddresses() {
+        const addressGrid = document.getElementById('addressGrid');
+        addressGrid.innerHTML = addressGrid.children[0].outerHTML;
+        try {
+          const buyer = await api.getBuyerProfile();
+          if (!buyer.address || !buyer.address.length) {
+            addressGrid.innerHTML += '<div class="empty-section-msg">No addresses found. Add a new address above.</div>';
+            return;
+          }
+          buyer.address.forEach((addr, idx) => {
+            addressGrid.innerHTML += `
+              <div class="address-card${addr.isDefault ? ' default-address' : ''}">
+                <h3 class="${addr.isDefault ? 'address-default' : 'address-secondary'}">${addr.isDefault ? 'Default' : 'Secondary'}</h3>
+                <h4 class="address-name">${addr.street}</h4>
+                <h5 class="address-details">
+                  ${addr.city}, ${addr.state}, ${addr.pincode}, ${addr.country}
+                </h5>
+                <div class="address-actions">
+                  <button class="address-btn edit">Edit</button>
+                  <button class="address-btn remove">Remove</button>
+                  ${!addr.isDefault ? '<button class="address-btn make-default">Make Default</button>' : ''}
+                </div>
+              </div>
+            `;
+          });
+        } catch (err) {
+          addressGrid.innerHTML += '<div class="empty-section-msg">Error loading addresses.</div>';
+        }
+      }
+
+      // Helper: Render Payment Methods
+      async function renderPayments() {
+        const paymentCardGrid = document.getElementById('paymentCardGrid');
+        const upiCardGrid = document.getElementById('upiCardGrid');
+        paymentCardGrid.innerHTML = '';
+        upiCardGrid.innerHTML = '';
+        try {
+          const payments = await api.getBuyerPayments();
+          let hasCard = false, hasUpi = false;
+          payments.forEach(payment => {
+            if (payment.type === 'card') {
+              paymentCardGrid.innerHTML += `
+                <div class="payment-card">
+                  <img src="assets/images/${payment.cardType || 'master-card'}.png" alt="Card BG" class="payment-card-bg-logo" />
+                  <div class="payment-card-header">
+                    <img src="assets/images/${payment.cardType || 'master-card'}.png" alt="Card" class="payment-card-logo" />
+                    <span class="payment-card-number">${payment.cardNumber.replace(/.(?=.{4})/g, '*')}</span>
+                  </div>
+                  <div class="payment-card-details">
+                    <div class="payment-card-name">${payment.cardName}</div>
+                    <div class="payment-card-expiry">Expiry: ${payment.expiry}</div>
+                  </div>
+                  <div class="payment-card-actions">
+                    <button class="payment-card-btn remove">Remove</button>
+                  </div>
+                </div>
+              `;
+              hasCard = true;
+            } else if (payment.type === 'upi') {
+              upiCardGrid.innerHTML += `
+                <div class="upi-card">
+                  <div class="upi-card-details">
+                    <div class="upi-card-id">${payment.upiId}</div>
+                    <div class="upi-card-name">${payment.upiName}</div>
+                  </div>
+                  <div class="upi-card-actions">
+                    <button class="upi-card-btn remove">Remove</button>
+                  </div>
+                </div>
+              `;
+              hasUpi = true;
+            }
+          });
+          if (!hasCard) {
+            paymentCardGrid.innerHTML += `<div class='empty-section-msg'>No cards saved. Add a card below.</div>`;
+          }
+          paymentCardGrid.innerHTML += `<div class="payment-card add-card-form-card">
+            <h3>Add New Card</h3>
+            <form class="add-payment-form">
+              <div class="form-group">
+                <label for="newCardName">Cardholder Name <span class="required">*</span></label>
+                <input type="text" id="newCardName" class="form-control" placeholder="Cardholder Name" required>
+              </div>
+              <div class="form-group">
+                <label for="newCardNumber">Card Number <span class="required">*</span></label>
+                <input type="text" id="newCardNumber" class="form-control" placeholder="Card Number" required>
+              </div>
+              <div class="form-group">
+                <label for="newCardExpiry">Expiry Date <span class="required">*</span></label>
+                <input type="text" id="newCardExpiry" class="form-control" placeholder="MM/YY" required>
+              </div>
+              <div class="form-group">
+                <label for="newCardCvv">CVV <span class="required">*</span></label>
+                <input type="text" id="newCardCvv" class="form-control" placeholder="CVV" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Card</button>
+            </form>
+          </div>`;
+          if (!hasUpi) {
+            upiCardGrid.innerHTML += `<div class='empty-section-msg'>No UPI IDs saved. Add a UPI below.</div>`;
+          }
+          upiCardGrid.innerHTML += `<div class="upi-card add-upi-form-card">
+            <h3>Add New UPI</h3>
+            <form class="add-payment-form">
+              <div class="form-group">
+                <label for="newUpiId">UPI ID <span class="required">*</span></label>
+                <input type="text" id="newUpiId" class="form-control" placeholder="upi@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="newUpiName">Name <span class="required">*</span></label>
+                <input type="text" id="newUpiName" class="form-control" placeholder="Name" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Add UPI</button>
+            </form>
+          </div>`;
+        } catch (err) {
+          paymentCardGrid.innerHTML = '<div class="empty-section-msg">Error loading cards.</div>';
+          upiCardGrid.innerHTML = '<div class="empty-section-msg">Error loading UPI.</div>';
+        }
+      }
+
+      // Helper: Render Wishlist
+      async function renderWishlist() {
+        const wishlistGrid = document.getElementById('wishlistGrid');
+        wishlistGrid.innerHTML = '<div>Loading wishlist...</div>';
+        try {
+          const wishlist = await api.getBuyerWishlist();
+          if (!wishlist || !wishlist.books || !wishlist.books.length) {
+            wishlistGrid.innerHTML = '<div class="empty-section-msg">No wishlist items yet. Add books to your wishlist!</div>';
+            return;
+          }
+          wishlistGrid.innerHTML = wishlist.books.map(book => `
+            <div class="wishlist-card">
+              <img src="${book.coverImage || 'assets/images/book1.jpg'}" alt="${book.title}" class="wishlist-book-img" />
+              <div class="wishlist-book-info">
+                <div class="wishlist-book-title">${book.title}</div>
+                <div class="wishlist-book-prices">
+                  <span class="wishlist-book-price">₹${book.price}</span>
+                  ${book.oldPrice ? `<span class="wishlist-book-old-price">₹${book.oldPrice}</span>` : ''}
+                </div>
+                <div class="wishlist-book-author">By ${book.author}</div>
+                ${book.badge ? `<div class="wishlist-badge">${book.badge}</div>` : ''}
+              </div>
+              <button class="wishlist-add-cart-btn" title="Add to Cart">Add to Cart</button>
+            </div>
+          `).join('');
+        } catch (err) {
+          wishlistGrid.innerHTML = '<div class="empty-section-msg">Error loading wishlist.</div>';
+        }
+      }
+
+      // Section switching logic
+      var links = document.querySelectorAll('.dashboard-link');
+      var sections = document.querySelectorAll('.dashboard-section');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          sections.forEach(section => {
+            section.style.display = section.id === link.dataset.section ? '' : 'none';
+          });
+          // Render dynamic data for the selected section
+          if (link.dataset.section === 'orders') renderOrders();
+          if (link.dataset.section === 'addresses') renderAddresses();
+          if (link.dataset.section === 'payment') renderPayments();
+          if (link.dataset.section === 'wishlist') renderWishlist();
+        });
+      });
+      // Initial render for the default section (profile)
+      document.addEventListener('DOMContentLoaded', () => {
+        renderOrders();
+        renderAddresses();
+        renderPayments();
+        renderWishlist();
+      });
+    </script>
+</body>
+</html>
